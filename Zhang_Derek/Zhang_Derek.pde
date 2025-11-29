@@ -1,9 +1,10 @@
-
+Ball ball;
 
 void setup(){
  size(800,900); 
  background(55,150,70);
-
+ //constructors
+ ball = new Ball(100,100);
   //borders to seperate the different golf fields
  stroke(0);
  strokeWeight(20);
@@ -29,5 +30,5 @@ void setup(){
 }
 
 void draw(){
-  
+    ball.display();
 }
