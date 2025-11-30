@@ -14,7 +14,7 @@ class Ball{
   
   void display(){
     noStroke();
-    fill(position.x);
+    fill(position.x/4,position.y/4,position.x+position.y/8);
     ellipse(position.x,position.y, 20,20);
   }
   void update(){
