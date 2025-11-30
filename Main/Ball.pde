@@ -3,7 +3,7 @@ class Ball{
   PVector velocity;
   PVector swing;
   float traction = 0.9;
-  float speed = 50;
+  //float speed = 50;
 
 
   Ball(float x, float y){
@@ -40,7 +40,7 @@ class Ball{
     //added for smoother movement and so speed can be multiplied easier
 
     // Give initial speed
-    velocity = direction.mult(speed);
+    velocity = direction.mult(s.speed);
   }
   }
   

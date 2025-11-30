@@ -1,5 +1,5 @@
 Ball[] ball = new Ball[4];
-float speed;
+Speed s = new Speed();
 boolean mouseHold = false;
 
 void setup(){
@@ -29,8 +29,8 @@ void draw(){
     
     
    //PowerBar
-   fill(speed + 20,speed/2+20,30);
-    triangle(300,850,700,700,100,speed*5);
+   fill(s.speed + 20,s.speed/2+20,30);
+    triangle(300,850,700,700,100,s.speed*5);
     
   //borders to seperate the different golf fields
  stroke(0);
@@ -49,10 +49,10 @@ void draw(){
  rect(0,width,width,100);
  line(width/4,width,width/4,900);
     
-    if (mouseHold == true && speed <= 50){
-    speed = speed + 1;
-    }else if (mouseHold==false && speed >= 0){
-      speed = speed - 1;
+    if (mouseHold == true && s.speed <= 50){
+    s.speed++;
+    }else if (mouseHold==false && s.speed >= 0){
+      s.speed--;
    }
 }
    
