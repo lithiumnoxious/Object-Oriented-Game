@@ -1,4 +1,6 @@
 Ball[] ball = new Ball[4];
+float speed;
+boolean mouseHold = false;
 
 void setup(){
  size(800,900); 
@@ -8,10 +10,10 @@ void setup(){
  
 // ball = new Ball(100,100);
   for (int i = 0; i < ball.length; i++) {
-    ball[0] = new Ball(random(width), random(height));
-    ball[1] = new Ball(random(width), random(height));
-    ball[2] = new Ball(random(width), random(height));
-    ball[3] = new Ball(random(width), random(height));
+    ball[0] = new Ball(100, 100);
+    ball[1] = new Ball(700, 100);
+    ball[2] = new Ball(100, 700);
+    ball[3] = new Ball(700, 700);
   }
 
 }
@@ -22,6 +24,13 @@ void draw(){
    ball[i].display();
    ball[i].update();
     }
+    
+    
+    
+    
+   //PowerBar
+   fill(speed + 20,speed/2+20,30);
+    triangle(300,850,700,700,100,speed*5);
     
   //borders to seperate the different golf fields
  stroke(0);
@@ -40,13 +49,23 @@ void draw(){
  rect(0,width,width,100);
  line(width/4,width,width/4,900);
     
+    if (mouseHold == true && speed <= 50){
+    speed = speed + 1;
+    }else if (mouseHold==false && speed >= 0){
+      speed = speed - 1;
    }
+}
+   
+void mousePressed(){
 
+  mouseHold = true;
+}
 
 
  void mouseReleased() {
        for (int i = 0; i < ball.length; i++) {  
 ball[i].roll(mouseX,mouseY);
+mouseHold = false;
 
  }
  }
