@@ -1,17 +1,27 @@
-Ball ball;
+Ball[] ball = new Ball[4];
 
 void setup(){
  size(800,900); 
 
  
  //constructors
- ball = new Ball(100,100);
+ 
+// ball = new Ball(100,100);
+  for (int i = 0; i < ball.length; i++) {
+    ball[0] = new Ball(random(width), random(height));
+    ball[1] = new Ball(random(width), random(height));
+    ball[2] = new Ball(random(width), random(height));
+    ball[3] = new Ball(random(width), random(height));
+  }
+
 }
 
 void draw(){
     background(55,150,70);
-    ball.display();
-    ball.update();
+    for (int i = 0; i < ball.length; i++) {  
+   ball[i].display();
+   ball[i].update();
+    }
     
   //borders to seperate the different golf fields
  stroke(0);
@@ -34,7 +44,11 @@ void draw(){
 
 
 
- void mousePressed() {
-ball.roll(mouseX,mouseY);
+ void mouseReleased() {
+       for (int i = 0; i < ball.length; i++) {  
+ball[i].roll(mouseX,mouseY);
 
  }
+ }
+ 
+ 

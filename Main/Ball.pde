@@ -5,6 +5,7 @@ class Ball{
   float traction = 0.9;
   float speed = 50;
 
+
   Ball(float x, float y){
    position = new PVector (x,y);
    velocity = new PVector (0,0);
@@ -13,8 +14,8 @@ class Ball{
   
   void display(){
     noStroke();
-    fill(230,230,235);
-    ellipse(position.x,position.y, 50,50);
+    fill(position.x);
+    ellipse(position.x,position.y, 20,20);
   }
   void update(){
       
@@ -41,4 +42,6 @@ class Ball{
     velocity = direction.mult(speed);
   }
   }
+  
+  
   
