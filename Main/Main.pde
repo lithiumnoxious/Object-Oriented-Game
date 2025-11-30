@@ -2,9 +2,17 @@ Ball ball;
 
 void setup(){
  size(800,900); 
- background(55,150,70);
+
+ 
  //constructors
  ball = new Ball(100,100);
+}
+
+void draw(){
+    background(55,150,70);
+    ball.display();
+    ball.update();
+    
   //borders to seperate the different golf fields
  stroke(0);
  strokeWeight(20);
@@ -21,14 +29,12 @@ void setup(){
  rect(0,width,width,100);
  rect(0,width,width,100);
  line(width/4,width,width/4,900);
- 
-
-   
-   
+    
+   }
 
 
-}
 
-void draw(){
-    ball.display();
-}
+ void mousePressed() {
+ball.roll(mouseX,mouseY);
+
+ }
