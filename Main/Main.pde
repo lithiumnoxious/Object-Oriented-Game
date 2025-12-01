@@ -42,15 +42,15 @@ void draw() {
 
   // bottom bar
   rectMode(CORNER);
-  fill(160, 230, 170);
-  rect(0, width, width, 100);
+  fill(70, 130, 70);
   rect(0, width, width, 100);
   line(width/4, width, width/4, 900);
 
   //PowerBar
-  strokeWeight(5);
+  noStroke();
   fill(s.speed*6, s.speed*2, 0);
-  triangle(225, 875, 775, 875, 235+s.speed*10.5, 875-s.speed*1);
+  rect(225, 575, 775, 875, 235+s.speed*10.5, 875-s.speed*1,235+s.speed*10.5, 875-s.speed*1);
+  //triangle(225, 875, 775, 875, 235+s.speed*10.5, 875-s.speed*1);
 
   if (mouseHold == true && s.speed <= 50) {
     s.speed++;
