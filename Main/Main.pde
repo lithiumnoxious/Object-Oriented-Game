@@ -40,6 +40,8 @@ void draw() {
   line(width/2, 0, width/2, width);
   line(0, width/2, height, width/2);
 
+
+
   // bottom bar
   rectMode(CORNER);
   fill(70, 130, 70);
@@ -49,7 +51,8 @@ void draw() {
   //PowerBar
   noStroke();
   fill(s.speed*6, s.speed*2, 0);
-  rect(225, 575, 775, 875, 235+s.speed*10.5, 875-s.speed*1,235+s.speed*10.5, 875-s.speed*1);
+  rectMode(CORNER);
+  rect(225-s.speed*5, 800, 105-s.speed,100);
   //triangle(225, 875, 775, 875, 235+s.speed*10.5, 875-s.speed*1);
 
   if (mouseHold == true && s.speed <= 50) {
