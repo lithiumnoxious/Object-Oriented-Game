@@ -1,4 +1,4 @@
-class Ball{
+class Ball {
   PVector position;
   PVector velocity;
   PVector swing;
@@ -6,33 +6,33 @@ class Ball{
   //float speed = 50;
 
 
-  Ball(float x, float y){
-   position = new PVector (x,y);
-   velocity = new PVector (0,0);
-   swing = position.copy();
+  Ball(float x, float y) {
+    position = new PVector (x, y);
+    velocity = new PVector (0, 0);
+    swing = position.copy();
   }
-  
-  void display(){
+
+  void display() {
     strokeWeight(3);
     stroke(200);
-    fill(position.x/4,position.y/4,position.x+position.y/8);
-    ellipse(position.x,position.y, 20,20);
+    fill(position.x/4, position.y/4, position.x+position.y/8);
+    ellipse(position.x, position.y, 20, 20);
   }
-  void update(){
-      
-      // Move the ball
-  position.add(velocity);
+  void update() {
 
-  // Apply friction (slows down)
-  velocity.mult(traction);
+    // Move the ball
+    position.add(velocity);
 
-  // Stop completely when speed is almost zero
-  if (velocity.mag() < 0.1) {
-    velocity.set(0, 0);  // fully stop
+    // Apply friction (slows down)
+    velocity.mult(traction);
+
+    // Stop completely when speed is almost zero
+    if (velocity.mag() < 0.1) {
+      velocity.set(0, 0);  // fully stop
+    }
   }
-  }
- 
-   void roll(float tx, float ty) {
+
+  void roll(float tx, float ty) {
     // Direction to target
     PVector target = new PVector(tx, ty);
     PVector direction = PVector.sub(target, position);
@@ -42,7 +42,4 @@ class Ball{
     // Give initial speed
     velocity = direction.mult(s.speed);
   }
-  }
-  
-  
-  
+}
