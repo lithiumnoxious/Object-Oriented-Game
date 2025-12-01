@@ -25,11 +25,6 @@ void draw() {
     ball[i].update();
   }
 
-
-
-
-
-
   //borders to seperate the different golf fields
   stroke(0);
   strokeWeight(10);
@@ -39,23 +34,23 @@ void draw() {
   rect(width/2, height/2, width, height); //border
   line(width/2, 0, width/2, width); //horizontal middle line
   line(0, width/2, height, width/2); //vertical middle line
-
-  // bottom bar
-  line(width/4, width, width/4, 900);
+  
   //background bar
   rectMode(CORNER);
   noStroke();
   fill(100, 100, 100);
-  rect(200, 800, 600, 100);
+  rect(0, 800, 900, 100);
+
   //PowerBar
   fill(40+s.speed*6, s.speed*2, 0);
   rect(200, 800, 10+s.speed*11.7, 100);
-
+    // bottom bar
   stroke(0);
   strokeWeight(10);
   noFill();
   rect(0, width, width, 100);
-
+  line(width/4, width, width/4, 900);
+  
   if (mouseHold == true && s.speed <= 50) {
     s.speed++;
   } else if (mouseHold==false && s.speed >= 0) {
@@ -63,14 +58,11 @@ void draw() {
   }
   
   
-  
-  
 }
 
 void mousePressed() {
   mouseHold = true;
 }
-
 
 void mouseReleased() {
   count ++;
