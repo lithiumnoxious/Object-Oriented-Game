@@ -32,21 +32,24 @@ class Ball {
     }
     //left wall
     if (position.x < 0){
-    velocity.mult(-0.9);
+     position.x = 0;       // push object back into valid area
+  velocity.x *= -0.9;   // bounce only the y component
   }
   //right wall
     if (position.x > 800){
-    velocity.mult(-0.9);
+   position.x = 800;       // push object back into valid area
+  velocity.x *= -0.9;   // bounce only the y component
   }
   //bottom wall
     if (position.y > 800){
-    velocity.mult(-0.9);
-  }
+ position.y = 800;       // push object back into valid area
+  velocity.y *= -0.9;   // bounce only the y component
+}
   //top wall
     if (position.y < 0){
-    velocity.mult(-0.9);
-  }
-  
+  position.y = 0;       // push object back into valid area
+  velocity.y *= -0.9;   // bounce only the y component
+}
   //  if (position.y >= height/2){
   //  velocity.mult(-0.9);
   //}

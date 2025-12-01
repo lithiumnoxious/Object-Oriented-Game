@@ -32,7 +32,7 @@ void draw() {
 
   //borders to seperate the different golf fields
   stroke(0);
-  strokeWeight(20);
+  strokeWeight(10);
   noFill();
   rect(0, 800, width, 100);
   rectMode(CENTER);
@@ -52,7 +52,7 @@ void draw() {
   rect(200, 800, 10+s.speed*11.7, 100);
 
   stroke(0);
-  strokeWeight(20);
+  strokeWeight(10);
   noFill();
   rect(0, width, width, 100);
 
