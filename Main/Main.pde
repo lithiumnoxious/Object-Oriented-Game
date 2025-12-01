@@ -47,26 +47,27 @@ void draw() {
   noStroke();
   fill(100, 100, 100);
   rect(200, 800, 600, 100);
-
   //PowerBar
   fill(40+s.speed*6, s.speed*2, 0);
-  rect(200, 800, s.speed*11.7, 100);
+  rect(200, 800, 10+s.speed*11.7, 100);
 
   stroke(0);
   strokeWeight(20);
   noFill();
   rect(0, width, width, 100);
 
-
   if (mouseHold == true && s.speed <= 50) {
     s.speed++;
   } else if (mouseHold==false && s.speed >= 0) {
     s.speed--;
   }
+  
+  
+  
+  
 }
 
 void mousePressed() {
-
   mouseHold = true;
 }
 

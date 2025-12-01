@@ -4,7 +4,7 @@ class Ball {
   PVector swing;
   float traction = 0.9;
   //float speed = 50;
-
+  
 
   Ball(float x, float y) {
     position = new PVector (x, y);
@@ -30,6 +30,26 @@ class Ball {
     if (velocity.mag() < 0.1) {
       velocity.set(0, 0);  // fully stop
     }
+    //left wall
+    if (position.x < 0){
+    velocity.mult(-0.9);
+  }
+  //right wall
+    if (position.x > 800){
+    velocity.mult(-0.9);
+  }
+  //bottom wall
+    if (position.y > 800){
+    velocity.mult(-0.9);
+  }
+  //top wall
+    if (position.y < 0){
+    velocity.mult(-0.9);
+  }
+  
+  //  if (position.y >= height/2){
+  //  velocity.mult(-0.9);
+  //}
   }
 
   void roll(float tx, float ty) {
