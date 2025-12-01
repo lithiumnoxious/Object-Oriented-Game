@@ -36,25 +36,29 @@ void draw() {
   noFill();
   rect(0, 800, width, 100);
   rectMode(CENTER);
-  rect(width/2, height/2, width, height);
-  line(width/2, 0, width/2, width);
-  line(0, width/2, height, width/2);
-
-
+  rect(width/2, height/2, width, height); //border
+  line(width/2, 0, width/2, width); //horizontal middle line
+  line(0, width/2, height, width/2); //vertical middle line
 
   // bottom bar
-  rectMode(CORNER);
-  fill(70, 130, 70);
-  rect(0, width, width, 100);
   line(width/4, width, width/4, 900);
+//background bar
+noStroke();
+  fill(100, 100, 100);
+  rectMode(CORNER);
+  rect(200, 800, 00, 100);
 
   //PowerBar
   noStroke();
-  fill(s.speed*6, s.speed*2, 0);
-  rectMode(CORNER);
-  rect(225-s.speed*5, 800, 105-s.speed,100);
-  //triangle(225, 875, 775, 875, 235+s.speed*10.5, 875-s.speed*1);
-
+  fill(40+s.speed*6, s.speed*2, 0);
+  rect(200, 800, s.speed*11.7, 100);
+ 
+ stroke(0);
+  strokeWeight(20);
+  noFill();
+  rect(0, width, width, 100); 
+ 
+  
   if (mouseHold == true && s.speed <= 50) {
     s.speed++;
   } else if (mouseHold==false && s.speed >= 0) {
