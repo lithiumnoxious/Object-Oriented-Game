@@ -4,7 +4,7 @@ class Ball {
   PVector swing;
   float traction = 0.9;
   //float speed = 50;
-  
+
 
   Ball(float x, float y) {
     position = new PVector (x, y);
@@ -30,39 +30,38 @@ class Ball {
     if (velocity.mag() < 0.1) {
       velocity.set(0, 0);  // fully stop
     }
+
+
     //left wall
-    if (position.x < 0){
-     position.x = 0;       // push object back into valid area
-  velocity.x *= -0.9;   // bounce only the y component
-  }
-  //right wall
-    if (position.x > 800){
-   position.x = 800;       // push object back into valid area
-  velocity.x *= -0.9;   // bounce only the y component
-  }
-  //bottom wall
-    if (position.y > 800){
- position.y = 800;       // push object back into valid area
-  velocity.y *= -0.9;   // bounce only the y component
-}
-  //top wall
-    if (position.y < 0){
-  position.y = 0;       // push object back into valid area
-  velocity.y *= -0.9;   // bounce only the y component
-}
-  //  if (position.y >= height/2){
-  //  velocity.mult(-0.9);
-  //}
+    if (position.x < 0) {
+      position.x = 0;       // push object back into valid area
+      velocity.x *= -0.9;   // bounce only the x component
+    }
+    //right wall
+    if (position.x > 800) {
+      position.x = 800;       // push object back into valid area
+      velocity.x *= -0.9;   // bounce only the x component
+    }
+    //bottom wall
+    if (position.y > 800) {
+      position.y = 800;       // push object back into valid area
+      velocity.y *= -0.9;   // bounce only the y component
+    }
+    //top wall
+    if (position.y < 0) {
+      position.y = 0;       // push object back into valid area
+      velocity.y *= -0.9;   // bounce only the y component
+    }
   }
 
-  void roll(float tx, float ty) {
-    // Direction to target
-    PVector target = new PVector(tx, ty);
-    PVector direction = PVector.sub(target, position);
-    direction.normalize();
-    //added for smoother movement and so speed can be multiplied easier
+ void roll(float tx, float ty) {
+   // Direction to target
+   PVector target = new PVector(tx, ty);
+   PVector direction = PVector.sub(target, position);
+   direction.normalize();
+   //added for smoother movement and so speed can be multiplied easier
 
-    // Give initial speed
-    velocity = direction.mult(s.speed);
+   // Give initial speed
+   velocity = direction.mult(s.speed);
   }
 }
