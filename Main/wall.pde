@@ -19,7 +19,5 @@ class Wall {
     rect(x, y, w, h);
   } 
 
-  
-}
 
- 
+}

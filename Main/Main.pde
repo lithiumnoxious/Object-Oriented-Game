@@ -1,5 +1,4 @@
 Ball[] ball = new Ball[4];
-Ball Gball;
 Speed s = new Speed();
 Wall[] wall = new Wall[2];
 boolean mouseHold = false;
@@ -71,10 +70,20 @@ void draw() {
   
     for (int i = 0; i < wall.length; i++) {
     wall[i].display();
+    
+    
+    //IT WAS THAT EASY???!!!
+      if (ball[1].position.x < width/2) {
+      ball[1].position.x = width/2;       // push object back into valid area
+      ball[1].velocity.x *= -0.9;   // bounce only the x component
+    }    
+    
+    
   }
 
-}
 
+
+}
 void mousePressed() {
   mouseHold = true;
 }
