@@ -1,13 +1,16 @@
 Ball[] ball = new Ball[4];
 Speed s = new Speed();
+Wall wall;
 boolean mouseHold = false;
 float count;
+boolean Win = false;
 
 void setup() {
   size(800, 900);
-
+Win = false;
 
   //constructors
+wall = new Wall(250, 100, 40, 200);
 
   // ball = new Ball(100,100);
   for (int i = 0; i < ball.length; i++) {
@@ -16,6 +19,8 @@ void setup() {
     ball[2] = new Ball(100, 700);
     ball[3] = new Ball(700, 700);
   }
+  
+  
 }
 
 void draw() {
@@ -51,12 +56,15 @@ void draw() {
   rect(0, width, width, 100);
   line(width/4, width, width/4, 900);
   
+  //while mouse is being held the speed value increase and decay when not held
   if (mouseHold == true && s.speed <= 50) {
     s.speed++;
   } else if (mouseHold==false && s.speed >= 0) {
     s.speed--;
   }
   
+  
+  wall.display();
   
 }
 
@@ -65,8 +73,10 @@ void mousePressed() {
 }
 
 void mouseReleased() {
+  //prints the strike count used
   count ++;
   println(int (count));
+  
   mouseHold = false;
   for (int i = 0; i < ball.length; i++) {
     ball[i].roll(mouseX, mouseY);
