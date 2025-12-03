@@ -1,5 +1,3 @@
-Ball ball1;
-
 class Wall {
   float x;
   float y;

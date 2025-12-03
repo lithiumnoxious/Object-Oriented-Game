@@ -28,7 +28,11 @@ Win = false;
 }
 
 void draw() {
+  
   background(55, 150, 70);
+  noStroke();
+    fill(0);
+    ellipse(360,360,30,30);
   
   for (int i = 0; i < ball.length; i++) {
     ball[i].display();
@@ -71,7 +75,6 @@ void draw() {
     for (int i = 0; i < wall.length; i++) {
     wall[i].display();
     
-    
     //IT WAS THAT EASY???!!!
         // trapping the top left ball
       if (ball[0].position.x > width/2) {
@@ -111,11 +114,12 @@ void draw() {
     } 
     
     
-    
-    
   }
 
-
+if (Win == true){
+    //text(30,20,20);
+    println("You Win");
+}
 
 }
 void mousePressed() {
