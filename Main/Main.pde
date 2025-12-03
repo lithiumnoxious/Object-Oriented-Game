@@ -3,12 +3,17 @@ Speed s = new Speed();
 Wall[] wall = new Wall[2];
 boolean mouseHold = false;
 float count;
+boolean Win0x = false;
+boolean Win0y = false;
+
 boolean Win1x = false;
 boolean Win1y = false;
 
-boolean Win2 = false;
-boolean Win3 = false;
-boolean Win4 = false;
+boolean Win2x = false;
+boolean Win2y = false;
+
+boolean Win3x = false;
+boolean Win3y = false;
 
 void setup() {
   size(800, 900);
@@ -42,11 +47,34 @@ void draw() {
 //used to read if the ball x and y postition are within the 340 -  380 area
 //if they are then win1 = true
 if ((ball[0].position.x >340)&&(ball[0].position.x < 380)) {
+      Win0x = true;
+    }  else{
+      Win0x = false;
+    }
+    if ((ball[0].position.y > 340)&&(ball[0].position.y < 380)) {
+     // 
+      Win0y = true;
+       }  else{
+      Win0y = false;
+    }
+    //both parts of win1 needs to be true in order for the fall to fall in
+if ((Win0x && Win0y)== true){
+    text("You Win",20,20);
+    
+        ball[0].velocity.set(0,0);
+
+}
+
+    //Top right hole
+    ellipse(440,360,30,30);
+//used to read if the ball x and y postition are within the 340 -  380 area
+//if they are then win1 = true
+if ((ball[1].position.x >420)&&(ball[1].position.x < 460)) {
       Win1x = true;
     }  else{
       Win1x = false;
     }
-    if ((ball[0].position.y > 340)&&(ball[0].position.y < 380)) {
+    if ((ball[1].position.y > 340)&&(ball[1].position.y < 380)) {
      // 
       Win1y = true;
        }  else{
@@ -54,8 +82,60 @@ if ((ball[0].position.x >340)&&(ball[0].position.x < 380)) {
     }
     //both parts of win1 needs to be true in order for the fall to fall in
 if ((Win1x && Win1y)== true){
-    text("You Win",20,20);
+    text("You Win",460,20);
+    
+        ball[1].velocity.set(0,0);
+
 }
+
+    //bottom left hole
+    ellipse(360,440,30,30);
+//used to read if the ball x and y postition are within the 340 -  380 area
+//if they are then win1 = true
+if ((ball[2].position.x >340)&&(ball[2].position.x < 380)) {
+      Win2x = true;
+    }  else{
+      Win2x = false;
+    }
+    if ((ball[2].position.y > 420)&&(ball[2].position.y < 440)) {
+     // 
+      Win2y = true;
+       }  else{
+      Win2y = false;
+    }
+    //both parts of win1 needs to be true in order for the fall to fall in
+if ((Win2x && Win2y)== true){
+  
+    text("You Win",200,440);
+    
+        ball[2].velocity.set(0,0);
+
+}
+
+    //bottom right hole
+    ellipse(440,440,30,30);
+//used to read if the ball x and y postition are within the 340 -  380 area
+//if they are then win1 = true
+if ((ball[3].position.x >420)&&(ball[3].position.x < 460)) {
+      Win3x = true;
+    }  else{
+      Win3x = false;
+    }
+    if ((ball[3].position.y > 420)&&(ball[3].position.y < 460)) {
+     // 
+      Win3y = true;
+       }  else{
+      Win3y = false;
+    }
+    //both parts of win1 needs to be true in order for the fall to fall in
+if ((Win3x && Win3y)== true){
+    text("You Win",460,440);
+    
+    ball[3].velocity.set(0,0);
+}
+
+
+
   
   for (int i = 0; i < ball.length; i++) {
     ball[i].display();
@@ -139,7 +219,9 @@ if ((Win1x && Win1y)== true){
     
   }
 
-
+if(count<=5){
+                                                                                                                                                                                                                                                     
+}
 }
 void mousePressed() {
   mouseHold = true;
