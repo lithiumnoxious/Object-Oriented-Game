@@ -73,15 +73,46 @@ void draw() {
     
     
     //IT WAS THAT EASY???!!!
+        // trapping the top left ball
+      if (ball[0].position.x > width/2) {
+      ball[0].position.x = width/2;       // push object back into valid area
+      ball[0].velocity.x *= -0.9;   // bounce only the x component
+    }    //there probally is a easier solution but this works
+    if (ball[0].position.y > (height-100)/2) {
+      ball[0].position.y = (height-100)/2; 
+      ball[0].velocity.y *= -0.9;   
+    }
+    // trapping the top right ball
       if (ball[1].position.x < width/2) {
       ball[1].position.x = width/2;       // push object back into valid area
       ball[1].velocity.x *= -0.9;   // bounce only the x component
-    }    
+    }    //there probally is a easier solution but this works
     if (ball[1].position.y > (height-100)/2) {
-      ball[1].position.y = (height-100)/2;       // push object back into valid area
-      ball[1].velocity.y *= -0.9;   // bounce only the x component
-    
+      ball[1].position.y = (height-100)/2; 
+      ball[1].velocity.y *= -0.9;   
     } 
+        // trapping the bottom left ball
+      if (ball[2].position.x > width/2) {
+      ball[2].position.x = width/2;       // push object back into valid area
+      ball[2].velocity.x *= -0.9;   // bounce only the x component
+    }    //there probally is a easier solution but this works
+    if (ball[2].position.y < (height-100)/2) {
+      ball[2].position.y = (height-100)/2; 
+      ball[2].velocity.y *= -0.9;   
+    } 
+        // trapping the bottom left ball
+      if (ball[3].position.x < width/2) {
+      ball[3].position.x = width/2;       // push object back into valid area
+      ball[3].velocity.x *= -0.9;   // bounce only the x component
+    }    //there probally is a easier solution but this works
+    if (ball[3].position.y < (height-100)/2) {
+      ball[3].position.y = (height-100)/2; 
+      ball[3].velocity.y *= -0.9;   
+    } 
+    
+    
+    
+    
   }
 
 
