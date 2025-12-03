@@ -1,6 +1,7 @@
 Ball[] ball = new Ball[4];
+Ball Gball;
 Speed s = new Speed();
-Wall wall;
+Wall[] wall = new Wall[2];
 boolean mouseHold = false;
 float count;
 boolean Win = false;
@@ -10,8 +11,12 @@ void setup() {
 Win = false;
 
   //constructors
-wall = new Wall(250, 100, 40, 200);
-
+  for (int i = 0; i < wall.length; i++) {
+    wall[0] = new Wall(width/2-10, 0, 20, 800);
+    wall[1] = new Wall(0, 400-10, 800, 20);
+  }
+  
+  
   // ball = new Ball(100,100);
   for (int i = 0; i < ball.length; i++) {
     ball[0] = new Ball(100, 100);
@@ -25,6 +30,7 @@ wall = new Wall(250, 100, 40, 200);
 
 void draw() {
   background(55, 150, 70);
+  
   for (int i = 0; i < ball.length; i++) {
     ball[i].display();
     ball[i].update();
@@ -63,9 +69,10 @@ void draw() {
     s.speed--;
   }
   
-  
-  wall.display();
-  
+    for (int i = 0; i < wall.length; i++) {
+    wall[i].display();
+  }
+
 }
 
 void mousePressed() {

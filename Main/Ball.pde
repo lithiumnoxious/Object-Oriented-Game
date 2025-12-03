@@ -3,6 +3,7 @@ class Ball {
   PVector velocity;
   PVector swing;
   float traction = 0.9;
+  float size = 20;
   //float speed = 50;
 
 
@@ -16,7 +17,7 @@ class Ball {
     strokeWeight(3);
     stroke(200);
     fill(position.x/4, position.y/4, position.x+position.y/8);
-    ellipse(position.x, position.y, 20, 20);
+    ellipse(position.x, position.y, size, size);
   }
   void update() {
 

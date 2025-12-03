@@ -1,3 +1,5 @@
+Ball ball1;
+
 class Wall {
   float x;
   float y;
@@ -12,7 +14,12 @@ class Wall {
   }
 
   void display() {
-    fill(100);
+    noStroke();
+    fill(0);
     rect(x, y, w, h);
-  }
+  } 
+
+  
 }
+
+ 
