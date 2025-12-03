@@ -5,11 +5,11 @@ boolean mouseHold = false;
 float count;
 //flags to check if the x & y variables are on the correct spot
 //win is to check if both are correct
-boolean Win0x,Win0y,win0 = false;
-boolean Win1x,Win1y,win1 = false;
-boolean Win2x,Win2y,win2 = false;
-boolean Win3x,Win3y,win3 = false;
-int timer0,timer1,timer2,timer3;
+boolean Win0x, Win0y, win0 = false;
+boolean Win1x, Win1y, win1 = false;
+boolean Win2x, Win2y, win2 = false;
+boolean Win3x, Win3y, win3 = false;
+int timer0, timer1, timer2, timer3;
 
 void setup() {
   size(800, 900);
@@ -40,30 +40,54 @@ void draw() {
   //used to read if the ball x and y postition are within the 340 -  380 area
   //if they are then win0 = true
   if ((ball[0].position.x >340)&&(ball[0].position.x < 380)) {
-    Win0x = true; } else { Win0x = false; }
+    Win0x = true;
+  } else {
+    Win0x = false;
+  }
   if ((ball[0].position.y > 340)&&(ball[0].position.y < 380)) {
-    Win0y = true; } else { Win0y = false; }
+    Win0y = true;
+  } else {
+    Win0y = false;
+  }
 
   //Top right hole
   ellipse(440, 360, 30, 30);
   if ((ball[1].position.x >420)&&(ball[1].position.x < 460)) {
-    Win1x = true; } else { Win1x = false; }
+    Win1x = true;
+  } else {
+    Win1x = false;
+  }
   if ((ball[1].position.y > 340)&&(ball[1].position.y < 380)) {
-    Win1y = true; } else { Win1y = false; }
+    Win1y = true;
+  } else {
+    Win1y = false;
+  }
 
   //bottom left hole
   ellipse(360, 440, 30, 30);
   if ((ball[2].position.x >340)&&(ball[2].position.x < 380)) {
-    Win2x = true; } else { Win2x = false; }
+    Win2x = true;
+  } else {
+    Win2x = false;
+  }
   if ((ball[2].position.y > 420)&&(ball[2].position.y < 440)) {
-    Win2y = true; } else { Win2y = false; }
+    Win2y = true;
+  } else {
+    Win2y = false;
+  }
 
   //bottom right hole
   ellipse(440, 440, 30, 30);
   if ((ball[3].position.x >420)&&(ball[3].position.x < 460)) {
-    Win3x = true; } else { Win3x = false; }
+    Win3x = true;
+  } else {
+    Win3x = false;
+  }
   if ((ball[3].position.y > 420)&&(ball[3].position.y < 460)) {
-    Win3y = true; } else { Win3y = false; }
+    Win3y = true;
+  } else {
+    Win3y = false;
+  }
 
 
   for (int i = 0; i < ball.length; i++) {
@@ -73,34 +97,46 @@ void draw() {
     //then timer will count up to 60
     //it will lock the postition of the ball so it won't move out
     //This will also play the win card.
-     fill(0);
+    fill(0);
     if ((Win0x && Win0y)== true) {
-      timer0 ++; } else { timer0 = 0; }
+      timer0 ++;
+    } else {
+      timer0 = 0;
+    }
     if (timer0 >=60) {
       ball[0].velocity.set(0, 0);
       rect(0, 0, 400, 400);
-           win0 = true;
+      win0 = true;
     }
     if ((Win1x && Win1y)== true) {
-      timer1 ++; } else { timer1 = 0; }
+      timer1 ++;
+    } else {
+      timer1 = 0;
+    }
     if (timer1 >=60) {
       ball[1].velocity.set(0, 0);
       rect(400, 0, 400, 400);
-           win1 = true;
+      win1 = true;
     }
     if ((Win2x && Win2y)== true) {
-      timer2 ++; } else { timer2 = 0; }
+      timer2 ++;
+    } else {
+      timer2 = 0;
+    }
     if (timer2 >=60) {
       ball[2].velocity.set(0, 0);
       rect(0, 400, 400, 400);
-           win2 = true;
+      win2 = true;
     }
     if ((Win3x && Win3y)== true) {
-      timer3 ++; } else { timer3 = 0; }
+      timer3 ++;
+    } else {
+      timer3 = 0;
+    }
     if (timer3 >=60) {
       ball[3].velocity.set(0, 0);
       rect(400, 400, 400, 400);
-           win3 = true;
+      win3 = true;
     }
     ball[i].update();
   }
@@ -179,53 +215,49 @@ void draw() {
       ball[3].velocity.y *= -0.9;
     }
   }
-  
-if ((win0&win1&win2&win3)==true){
-  fill(10,155,130);
-  rect(20,20,760,760);
-  fill(0);
-  textSize(60);
-  text("              You Win!\n\nPress space to restart!",130,300);
-} else if (count>=10) {
-      fill(220,55,100);
-  rect(20,20,760,760);
-  fill(0);
-  textSize(60);
-  text("             You Lose!\n\nPress space to restart!",130,300);
+
+  if ((win0&win1&win2&win3)==true) {
+    fill(10, 155, 130);
+    rect(20, 20, 760, 760);
+    fill(0);
+    textSize(60);
+    text("              You Win!\n\nPress space to restart!", 130, 300);
+  } else if (count>=10) {
+    fill(220, 55, 100);
+    rect(20, 20, 760, 760);
+    fill(0);
+    textSize(60);
+    text("             You Lose!\n\nPress space to restart!", 130, 300);
   }
-  
-  
- 
-  
+
+  fill(0);
+  textSize(60);
+  text (10 - int(count), 20, 880);
 }
 
-void keyPressed(){
-if (key == ' '){
+void keyPressed() {
+  if (key == ' ') {
     ball[0].position.set(100, 100);
     ball[1].position.set(700, 100);
     ball[2].position.set(100, 700);
     ball[3].position.set(700, 700);
     count = 0;
-Win0x = false;
-Win0y = false;
-win0 = false;
+    Win0x = false;
+    Win0y = false;
+    win0 = false;
 
-Win1x= false;
-Win1y = false;
-win1 = false;
+    Win1x= false;
+    Win1y = false;
+    win1 = false;
 
-Win2x = false;
-Win2y = false;
-win2 = false;
- 
-Win3x = false;
-Win3y = false;
-win3 = false;
+    Win2x = false;
+    Win2y = false;
+    win2 = false;
 
-    
-    
-    
-}
+    Win3x = false;
+    Win3y = false;
+    win3 = false;
+  }
 }
 
 void mousePressed() {
