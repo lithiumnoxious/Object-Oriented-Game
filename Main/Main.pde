@@ -3,11 +3,15 @@ Speed s = new Speed();
 Wall[] wall = new Wall[2];
 boolean mouseHold = false;
 float count;
-boolean Win = false;
+boolean Win1x = false;
+boolean Win1y = false;
+
+boolean Win2 = false;
+boolean Win3 = false;
+boolean Win4 = false;
 
 void setup() {
   size(800, 900);
-Win = false;
 
   //constructors
   for (int i = 0; i < wall.length; i++) {
@@ -32,7 +36,26 @@ void draw() {
   background(55, 150, 70);
   noStroke();
     fill(0);
+    
+    //Top left hole
     ellipse(360,360,30,30);
+//used to read if the ball x and y postition are within the 340 -  380 area
+//if they are then win1 = true
+if ((ball[0].position.x >340)&&(ball[0].position.x < 380)) {
+      Win1x = true;
+    }  else{
+      Win1x = false;
+    }
+    if ((ball[0].position.y > 340)&&(ball[0].position.y < 380)) {
+     // 
+      Win1y = true;
+       }  else{
+      Win1y = false;
+    }
+    //both parts of win1 needs to be true in order for the fall to fall in
+if ((Win1x && Win1y)== true){
+    text("You Win",20,20);
+}
   
   for (int i = 0; i < ball.length; i++) {
     ball[i].display();
@@ -116,10 +139,6 @@ void draw() {
     
   }
 
-if (Win == true){
-    //text(30,20,20);
-    println("You Win");
-}
 
 }
 void mousePressed() {
