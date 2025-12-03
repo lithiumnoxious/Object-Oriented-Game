@@ -3,20 +3,13 @@ Speed s = new Speed();
 Wall[] wall = new Wall[2];
 boolean mouseHold = false;
 float count;
-
+//flags to check if the x & y variables are on the correct spot
+//win is to check if both are correct
 boolean Win0x,Win0y,win0 = false;
-int timer0;
-
 boolean Win1x,Win1y,win1 = false;
-int timer1;
-
 boolean Win2x,Win2y,win2 = false;
-int timer2;
-
 boolean Win3x,Win3y,win3 = false;
-int timer3;
-
-
+int timer0,timer1,timer2,timer3;
 
 void setup() {
   size(800, 900);
@@ -26,7 +19,6 @@ void setup() {
     wall[0] = new Wall(width/2-10, 0, 20, 800);
     wall[1] = new Wall(0, 400-10, 800, 20);
   }
-
 
   // ball = new Ball(100,100);
   for (int i = 0; i < ball.length; i++) {
@@ -46,7 +38,7 @@ void draw() {
   //Top left hole
   ellipse(360, 360, 30, 30);
   //used to read if the ball x and y postition are within the 340 -  380 area
-  //if they are then win1 = true
+  //if they are then win0 = true
   if ((ball[0].position.x >340)&&(ball[0].position.x < 380)) {
     Win0x = true; } else { Win0x = false; }
   if ((ball[0].position.y > 340)&&(ball[0].position.y < 380)) {
@@ -54,8 +46,6 @@ void draw() {
 
   //Top right hole
   ellipse(440, 360, 30, 30);
-  //used to read if the ball x and y postition are within the 340 -  380 area
-  //if they are then win1 = true
   if ((ball[1].position.x >420)&&(ball[1].position.x < 460)) {
     Win1x = true; } else { Win1x = false; }
   if ((ball[1].position.y > 340)&&(ball[1].position.y < 380)) {
@@ -63,8 +53,6 @@ void draw() {
 
   //bottom left hole
   ellipse(360, 440, 30, 30);
-  //used to read if the ball x and y postition are within the 340 -  380 area
-  //if they are then win1 = true
   if ((ball[2].position.x >340)&&(ball[2].position.x < 380)) {
     Win2x = true; } else { Win2x = false; }
   if ((ball[2].position.y > 420)&&(ball[2].position.y < 440)) {
@@ -72,8 +60,6 @@ void draw() {
 
   //bottom right hole
   ellipse(440, 440, 30, 30);
-  //used to read if the ball x and y postition are within the 340 -  380 area
-  //if they are then win1 = true
   if ((ball[3].position.x >420)&&(ball[3].position.x < 460)) {
     Win3x = true; } else { Win3x = false; }
   if ((ball[3].position.y > 420)&&(ball[3].position.y < 460)) {
@@ -95,7 +81,6 @@ void draw() {
       rect(0, 0, 400, 400);
            win0 = true;
     }
-
     if ((Win1x && Win1y)== true) {
       timer1 ++; } else { timer1 = 0; }
     if (timer1 >=60) {
@@ -103,8 +88,6 @@ void draw() {
       rect(400, 0, 400, 400);
            win1 = true;
     }
-
-
     if ((Win2x && Win2y)== true) {
       timer2 ++; } else { timer2 = 0; }
     if (timer2 >=60) {
@@ -112,7 +95,6 @@ void draw() {
       rect(0, 400, 400, 400);
            win2 = true;
     }
-
     if ((Win3x && Win3y)== true) {
       timer3 ++; } else { timer3 = 0; }
     if (timer3 >=60) {
@@ -204,9 +186,7 @@ if ((win0&win1&win2&win3)==true){
   fill(0);
   textSize(60);
   text("              You Win!\n\nPress space to restart!",130,300);
-}
-
-  if (count>=10) {
+} else if (count>=10) {
       fill(220,55,100);
   rect(20,20,760,760);
   fill(0);
@@ -221,10 +201,30 @@ if ((win0&win1&win2&win3)==true){
 
 void keyPressed(){
 if (key == ' '){
-    ball[0] = new Ball(100, 100);
-    ball[1] = new Ball(700, 100);
-    ball[2] = new Ball(100, 700);
-    ball[3] = new Ball(700, 700);
+    ball[0].position.set(100, 100);
+    ball[1].position.set(700, 100);
+    ball[2].position.set(100, 700);
+    ball[3].position.set(700, 700);
+    count = 0;
+Win0x = false;
+Win0y = false;
+win0 = false;
+
+Win1x= false;
+Win1y = false;
+win1 = false;
+
+Win2x = false;
+Win2y = false;
+win2 = false;
+ 
+Win3x = false;
+Win3y = false;
+win3 = false;
+
+    
+    
+    
 }
 }
 
