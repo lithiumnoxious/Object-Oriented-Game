@@ -3,18 +3,28 @@ Speed s = new Speed();
 Wall[] wall = new Wall[2];
 boolean mouseHold = false;
 float count;
+
 boolean Win0x = false;
 boolean Win0y = false;
+int timer0;
+boolean win0 = false;
 
 boolean Win1x = false;
 boolean Win1y = false;
+int timer1;
+boolean win1 = false;
 
 boolean Win2x = false;
 boolean Win2y = false;
+int timer2;
+boolean win2 = false;
 
 boolean Win3x = false;
 boolean Win3y = false;
 int timer3;
+boolean win3 = false;
+
+
 
 void setup() {
   size(800, 900);
@@ -114,36 +124,41 @@ void draw() {
     //then timer will count up to 60
     //it will lock the postition of the ball so it won't move out
     //This will also play the win card.
+     fill(0);
     if ((Win0x && Win0y)== true) {
-      timer3 ++;
+      timer0 ++;
     } else {
-      timer3 = 0;
+      timer0 = 0;
     }
-    if (timer3 >=60) {
+    if (timer0 >=60) {
       ball[0].velocity.set(0, 0);
-      fill(0);
       rect(0, 0, 400, 400);
+           win0 = true;
     }
 
     if ((Win1x && Win1y)== true) {
-      timer3 ++;
+      timer1 ++;
     } else {
-      timer3 = 0;
+      timer1 = 0;
     }
-    if (timer3 >=60) {
+    if (timer1 >=60) {
       ball[1].velocity.set(0, 0);
       rect(400, 0, 400, 400);
+           win1 = true;
     }
 
 
     if ((Win2x && Win2y)== true) {
-      timer3 ++;
-    } else {
-      timer3 = 0;
+      timer2 ++;
+    } 
+    else {
+      timer2 = 0;
     }
-    if (timer3 >=60) {
+    if (timer2 >=60) {
       ball[2].velocity.set(0, 0);
       rect(0, 400, 400, 400);
+           win2 = true;
+
     }
 
     if ((Win3x && Win3y)== true) {
@@ -154,6 +169,7 @@ void draw() {
     if (timer3 >=60) {
       ball[3].velocity.set(0, 0);
       rect(400, 400, 400, 400);
+           win3 = true;
     }
     ball[i].update();
   }
@@ -235,9 +251,22 @@ void draw() {
       ball[3].velocity.y *= -0.9;
     }
   }
+  
+if ((win0&win1&win2&win3)==true){
+  fill(10,155,130);
+  rect(20,20,760,760);
+  fill(0);
+  textSize(60);
+  text("              You Win!\n\nPress space to restart!",130,300);
+}
 
   if (count<=10) {
+    
+    
+    
   }
+  
+  
 }
 void mousePressed() {
   mouseHold = true;
