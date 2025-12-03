@@ -53,9 +53,6 @@ class Ball {
       position.y = 0;       // push object back into valid area
       velocity.y *= -0.9;   // bounce only the y component
     }
-    //middle vertical
-  
-    
     
   }
 

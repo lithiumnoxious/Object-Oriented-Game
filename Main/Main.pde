@@ -77,8 +77,11 @@ void draw() {
       ball[1].position.x = width/2;       // push object back into valid area
       ball[1].velocity.x *= -0.9;   // bounce only the x component
     }    
+    if (ball[1].position.y > (height-100)/2) {
+      ball[1].position.y = (height-100)/2;       // push object back into valid area
+      ball[1].velocity.y *= -0.9;   // bounce only the x component
     
-    
+    } 
   }
 
 
