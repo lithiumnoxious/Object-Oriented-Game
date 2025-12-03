@@ -260,8 +260,12 @@ if ((win0&win1&win2&win3)==true){
   text("              You Win!\n\nPress space to restart!",130,300);
 }
 
-  if (count<=10) {
-    
+  if (count>=10) {
+      fill(220,55,100);
+  rect(20,20,760,760);
+  fill(0);
+  textSize(60);
+  text("             You Lose!\n\nPress space to restart!",130,300);
     
     
   }
