@@ -35,25 +35,23 @@ void draw() {
   noStroke();
   fill(0);
 
-    for (int i = 0; i < Obi.length; i++) {
+  for (int i = 0; i < Obi.length; i++) {
     //Obstacles around the map
-    Obi[0] = new obstacles(150,150,70,90);
+    Obi[0] = new obstacles(150, 150, 160, 90);
     Obi[1] = new obstacles(0, 200, 110, 400);
-    Obi[2] = new obstacles(300, 0, 90, 200);
-    
+    Obi[2] = new obstacles(300, 0, 130, 200);
+
     Obi[3] = new obstacles(540, 200, 80, 160);
-    Obi[4] = new obstacles(400,0,100,150);
-    Obi[5] = new obstacles(680, 280, 120, 300);
-    
+    Obi[4] = new obstacles(400, 0, 100, 150);
+    Obi[5] = new obstacles(580, 180, 220, 300);
+
     Obi[6] = new obstacles(90, 400, 200, 150);
     Obi[7] = new obstacles(180, 700, 400, 100);
-    
+
     Obi[8] = new obstacles(350, 600, 200, 150);
     Obi[9] = new obstacles(500, 400, 200, 90);
-      }
+  }
 
-  
-    
   //Top left hole
   fill(100);
   ellipse(360, 360, 30, 30);
@@ -109,13 +107,11 @@ void draw() {
     Win3y = false;
   }
 
-
-
   for (int i = 0; i < ball.length; i++) {
     ball[i].display();
-            for (int j = 0; j < Obi.length; j++) {
-    Obi[j].display();
-              }
+    for (int j = 0; j < Obi.length; j++) {
+      Obi[j].display();
+    }
     //both x and y axis needs to be in the hole to score
     //then timer will count up to 60
     //it will lock the postition of the ball so it won't move out
@@ -164,13 +160,10 @@ void draw() {
     ball[i].update();
   }
 
-
   for (int i = 0; i < wall.length; i++) {
     wall[i].display();
   }
-  
-      
-      
+
   //borders to seperate the different golf fields
   stroke(0);
   strokeWeight(10);
@@ -203,50 +196,44 @@ void draw() {
   } else if (mouseHold==false && s.speed >= 0) {
     s.speed--;
   }
-
-    //IT WAS THAT EASY???!!!
-    //Walls
-    // trapping the top left ball
-    if (ball[0].position.x > width/2) {
-      ball[0].position.x = width/2;       // push object back into valid area
-      ball[0].velocity.x *= -0.9;   // bounce only the x component
-    }    //there probally is a easier solution but this works
-    if (ball[0].position.y > (height-100)/2) {
-      ball[0].position.y = (height-100)/2;
-      ball[0].velocity.y *= -0.9;
-    }
-    // trapping the top right ball
-    if (ball[1].position.x < width/2) {
-      ball[1].position.x = width/2;       // push object back into valid area
-      ball[1].velocity.x *= -0.9;   // bounce only the x component
-    }    //there probally is a easier solution but this works
-    if (ball[1].position.y > (height-100)/2) {
-      ball[1].position.y = (height-100)/2;
-      ball[1].velocity.y *= -0.9;
-    }
-    // trapping the bottom left ball
-    if (ball[2].position.x > width/2) {
-      ball[2].position.x = width/2;       // push object back into valid area
-      ball[2].velocity.x *= -0.9;   // bounce only the x component
-    }    //there probally is a easier solution but this works
-    if (ball[2].position.y < (height-100)/2) {
-      ball[2].position.y = (height-100)/2;
-      ball[2].velocity.y *= -0.9;
-    }
-    // trapping the bottom left ball
-    if (ball[3].position.x < width/2) {
-      ball[3].position.x = width/2;       // push object back into valid area
-      ball[3].velocity.x *= -0.9;   // bounce only the x component
-    }    //there probally is a easier solution but this works
-    if (ball[3].position.y < (height-100)/2) {
-      ball[3].position.y = (height-100)/2;
-      ball[3].velocity.y *= -0.9;
-    }
-    
-
-    
-  
-  
+  //IT WAS THAT EASY???!!!
+  //Walls
+  // trapping the top left ball
+  if (ball[0].position.x > width/2) {
+    ball[0].position.x = width/2;       // push object back into valid area
+    ball[0].velocity.x *= -0.9;   // bounce only the x component
+  }    //there probally is a easier solution but this works
+  if (ball[0].position.y > (height-100)/2) {
+    ball[0].position.y = (height-100)/2;
+    ball[0].velocity.y *= -0.9;
+  }
+  // trapping the top right ball
+  if (ball[1].position.x < width/2) {
+    ball[1].position.x = width/2;       // push object back into valid area
+    ball[1].velocity.x *= -0.9;   // bounce only the x component
+  }    //there probally is a easier solution but this works
+  if (ball[1].position.y > (height-100)/2) {
+    ball[1].position.y = (height-100)/2;
+    ball[1].velocity.y *= -0.9;
+  }
+  // trapping the bottom left ball
+  if (ball[2].position.x > width/2) {
+    ball[2].position.x = width/2;       // push object back into valid area
+    ball[2].velocity.x *= -0.9;   // bounce only the x component
+  }    //there probally is a easier solution but this works
+  if (ball[2].position.y < (height-100)/2) {
+    ball[2].position.y = (height-100)/2;
+    ball[2].velocity.y *= -0.9;
+  }
+  // trapping the bottom left ball
+  if (ball[3].position.x < width/2) {
+    ball[3].position.x = width/2;       // push object back into valid area
+    ball[3].velocity.x *= -0.9;   // bounce only the x component
+  }    //there probally is a easier solution but this works
+  if (ball[3].position.y < (height-100)/2) {
+    ball[3].position.y = (height-100)/2;
+    ball[3].velocity.y *= -0.9;
+  }
 
   if ((win0&win1&win2&win3)==true) {
     fill(10, 155, 130);
