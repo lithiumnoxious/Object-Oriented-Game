@@ -51,33 +51,8 @@ void draw() {
     Obi[8] = new obstacles(350, 600, 200, 150);
     Obi[9] = new obstacles(500, 400, 200, 90);
       }
-          for (int i = 0; i < Obi.length; i++) {
-    Obi[i].display();
-  }
 
-//Obstacles
-    if ((ball[0].position.x > 150) && (ball[0].position.y > 150 ) 
-    || (ball[0].position.x > 300) && (ball[0].position.y > 150 )) {
-      ball[0].velocity.x *= -0.9;   // bounce component
-    }
-    //if (ball[1].position.x > width/2) {
-    //  ball[1].velocity.x *= -0.9;   // bounce only the x component
-    //}    //there probally is a easier solution but this works
-    //if (ball[1].position.y > (height-100)/2) {
-    //  ball[1].velocity.y *= -0.9;
-    //}
-    //if (ball[2].position.x > width/2) {
-    //  ball[2].velocity.x *= -0.9;   // bounce only the x component
-    //}    //there probally is a easier solution but this works
-    //if (ball[2].position.y > (height-100)/2) {
-    //  ball[2].velocity.y *= -0.9;
-    //}
-    //if (ball[3].position.x > width/2) {
-    //  ball[3].velocity.x *= -0.9;   // bounce only the x component
-    //}    //there probally is a easier solution but this works
-    //if (ball[3].position.y > (height-100)/2) {
-    //  ball[3].velocity.y *= -0.9;
-    //}
+  
     
   //Top left hole
   fill(100);
@@ -138,6 +113,9 @@ void draw() {
 
   for (int i = 0; i < ball.length; i++) {
     ball[i].display();
+            for (int j = 0; j < Obi.length; j++) {
+    Obi[j].display();
+              }
     //both x and y axis needs to be in the hole to score
     //then timer will count up to 60
     //it will lock the postition of the ball so it won't move out
@@ -186,11 +164,10 @@ void draw() {
     ball[i].update();
   }
 
-  
+
   for (int i = 0; i < wall.length; i++) {
     wall[i].display();
   }
-  
   
       
       
